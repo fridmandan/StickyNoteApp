@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">				
 		<title>Sticky Note App</title>
 		
-		<link type="text/css" rel="stylesheet" href="css/styles2.css"/>		
+		<link type="text/css" rel="stylesheet" href="css/styles.css"/>		
 		<link href="http://fonts.googleapis.com/css?family=Chewy:regular" rel="stylesheet" type="text/css"/>
 		
 		<script type="text/javascript" src="js/jquery/jquery-1.4.4.min.js"></script>
@@ -35,11 +35,13 @@
                 $('.total-count').text(count);
             }
 
+            // save the notes into local storage
             function saveNotes() {
                 var notesArray = [];
             
+                // for each of the notes add a bespoke note object to the array
                 notes.find("li > div").each(function (index, element) {
-
+                    // save the class attribute of the div, as well as the text for the title and content text areas
                     var colourClass = $(element).attr("class");
                     var title = $(element).find("textarea.note-title");
                     var content = $(element).find("textarea.note-content");
@@ -47,39 +49,44 @@
                     notesArray.push({ Index: index, Title: title.val(), Content: content.val(), Class: colourClass });
                 });
             
+                // json encode it
                 var jsonStr = JSON.stringify(notesArray);
             
+                // and save the json string into local storage
                 localStorage.setItem("notes", jsonStr);
                 updateTotalCount(notesArray.length);
             }
 
             function renderNote(className, title, content) {
+                // if class is not specified, use a random colour class
                 if (!className) {
                     className = colours[Math.floor(Math.random() * colours.length)];
                 }
 
+                // add a new note to the end of the list
                 notes.append("<li class='note'><div class='" + className + "'>" + 
                                 "<textarea class='note-title' placeholder='Untitled' maxlength='10'/>" + 
                                 "<textarea class='note-content' placeholder='Your content here'/>" + 
                                 "<img class='close-icon' src='images/close.png'/>" + 
                                 "</div></li>");
-
+                            
+                // get the new note that's just been added and attach the click event handler to its close button
                 var newNote = notes.find("li:last");
                 newNote.find("img").click(function () {
-
+                    // remove the note and save
                     newNote.remove();
                     saveNotes();
                 });
                             
-
+                // if a title is provided then set the title of the new note
                 if (title) {
-
+                    // get the title textarea element and set its value
                     newNote.find("textarea.note-title").val(title);
                 }
             
-
+                // if a content is provided then set the content of the new note
                 if (content) {
-
+                    // get the content textarea element and set its value
                     newNote.find("textarea.note-content").val(content);
                 }
 
@@ -115,11 +122,11 @@
                 $("#notes").empty();
             }
 
-
+            // load the notes saved in the local storage
             function loadNotes() {
                 var storedNotes = localStorage.getItem("notes");
                 if (storedNotes) {
-
+                    // passes the stored json back into an array of note objects
                     var notesArray = JSON.parse(storedNotes);
             
                     var i;
@@ -147,11 +154,13 @@
 
             
             $(document).ready(function () {
-
+                // get references to the 'notes' list
                 notes = $("#notes");
             
+                // load notes from local storage if one's available
                 loadNotes();
             
+                // clicking the 'New Note' button adds a new note to the list
                 $("#btnNew").click(function () {
                     addNewNote();
                 });

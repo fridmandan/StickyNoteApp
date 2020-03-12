@@ -14,8 +14,9 @@ body {
 }
 
 #controls {
-	padding: 20px 0;
+	padding: 10px 0;
 	background-color: #cccccc;
+
 }
 
 .app-label {
@@ -30,7 +31,8 @@ body {
 
 .total-count {
 	font-weight: 700;
-	text-decoration: black;
+	font-family: 'Chewy';
+	font-size: large;
 }
 
 .close-icon {
@@ -45,10 +47,7 @@ body {
 	background: rgba(0, 0, 0, 0);
 }
 
-#controls img:hover, #controls img:focus {
-	-webkit-transform: scale(1.2);  
-  	-moz-transform: scale(1.2);  
-  	-o-transform: scale(1.2);  
+#controls img:hover, #controls img:focus {  
   	position:relative;
 }
 
@@ -70,9 +69,10 @@ ul {
 }
 
 ul li {
-	margin: 15px;
+	margin-bottom: 10px !important;
 	float: left;
 	position: relative;
+	top: 15px;
 }
 
 ul li div {
@@ -83,13 +83,10 @@ ul li div {
 	height: 150px;
 	width: 150px;
 	padding: 10px;
-	-moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
-	-webkit-box-shadow: 5px 5px 7px  rgba(33, 33, 33, .7);
-	box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
-	-moz-transition: -moz-transform .15s linear;
-	-o-transition: -o-transform .15s linear;
-	-webkit-transition: -webkit-transform .15s linear;
+	margin:2px;
 	border-style: solid;
+	border-bottom-left-radius: 20px;
+	border-top-right-radius: 20px;
 }
 
 ul li div img {
@@ -130,48 +127,12 @@ ul li textarea {
 	width: 95%;
 }
 
-ul li:nth-child(even) div {  
-  -o-transform:rotate(4deg);  
-  -webkit-transform:rotate(4deg);  
-  -moz-transform:rotate(4deg);  
-  position:relative;  
-  top:5px;  
-}
-
-ul li:nth-child(3n) div {  
-  -o-transform:rotate(-3deg);  
-  -webkit-transform:rotate(-3deg);  
-  -moz-transform:rotate(-3deg);  
-  position:relative;  
-  top:-5px;  
-}
-
-ul li:nth-child(5n) div {  
-  -o-transform:rotate(5deg);  
-  -webkit-transform:rotate(5deg);  
-  -moz-transform:rotate(5deg);  
-  position:relative;  
-  top:-10px;
-}
-
-ul li div:hover, ul li div:focus {  
-  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);  
-  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);  
-  box-shadow:10px 10px 7px rgba(0,0,0,.7);  
-  -webkit-transform: scale(1.25);  
-  -moz-transform: scale(1.25);  
-  -o-transform: scale(1.25);  
+ul li div:hover, ul li div:focus {      
   position:relative;  
   z-index:5;   
 }
 
-.note.active div {
-	-moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);  
-	-webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);  
-	box-shadow:10px 10px 7px rgba(0,0,0,.7);  
-	-webkit-transform: scale(1.25);  
-	-moz-transform: scale(1.25);  
-	-o-transform: scale(1.25);  
+.note.active div {    
 	position:relative;  
 	z-index:5;   
 }
@@ -195,7 +156,6 @@ ul li div:hover, ul li div:focus {
 	display: none;
 	position: absolute;
 	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1000;
 }
 
