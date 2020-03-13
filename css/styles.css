@@ -47,9 +47,6 @@ body {
 	background: rgba(0, 0, 0, 0);
 }
 
-#controls img:hover, #controls img:focus {  
-  	position:relative;
-}
 
 #clearNotes {
 	margin-right: 10px;
@@ -57,6 +54,16 @@ body {
 
 #btnNew {
 	margin-right: 10px;
+}
+
+.logo {
+	padding:0;
+	display:inline-block;
+}
+
+.logo-img {
+	width: 75px !important;
+	height:75px !important;
 }
 
 ul, li {
@@ -127,15 +134,6 @@ ul li textarea {
 	width: 95%;
 }
 
-ul li div:hover, ul li div:focus {      
-  position:relative;  
-  z-index:5;   
-}
-
-.note.active div {    
-	position:relative;  
-	z-index:5;   
-}
 
 .yellow {
 	background: #ffc;
